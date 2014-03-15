@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+    
+    <class name="domain.Staff" table="staff_master">
+        <meta attribute="class-description">
+            This class contains the Staff detail. 
+        </meta>
+        <id name="staff_id" type="long" column="staff_id">
+            <generator class="sequence">
+                <param name="sequence">staff_master_staff_id_seq</param>
+            </generator>
+        </id>
+        <property name="fname" column="fname" type="string"/>
+        <property name="lname" column="lname" type="string"/>
+        <property name="designation" column="designation" type="string"/>
+        <property name="email" column="email" type="string"/>
+        <property name="phone" column="phone" type="string"/>
+        <property name="user_id" column="user_id" type="long"/>
+    </class>
+    
+    
+    <sql-query name="findStaffById">
+        <return class="domain.Staff"/>
+        select * from staff_master where staff_id = :staff_id
+    </sql-query>
+    
+    <sql-query name="findStaffByUserId">
+        <return class="domain.Staff"/>
+        select * from staff_master where user_id = :user_id
+    </sql-query>
+        
+    <sql-query name="getAllStaffs">
+        <return class="domain.Staff"/>
+        select * from staff_master
+    </sql-query>
+</hibernate-mapping>

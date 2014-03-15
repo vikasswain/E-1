@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+    
+    <class name="domain.Qualification" table="qualification">
+        <meta attribute="class-description">
+            This class contains the Qualification detail. 
+        </meta>
+        <id name="entry_id" type="long" column="entry_id">
+            <generator class="sequence">
+                <param name="sequence">qualification_entry_id_seq</param>
+            </generator>
+        </id>
+        <property name="qualification" column="qualification" type="string"/>
+        <property name="percentage" column="percentage" type="double"/>
+        <property name="institute" column="institute" type="string"/>
+        <property name="university" column="university" type="string"/>
+        <property name="description" column="description" type="string"/>
+        <property name="student_id" column="student_id" type="long"/>
+    </class>    
+    
+    <sql-query name="findQualificationById">
+        <return class="domain.Qualification"/>
+        select * from qualification where entry_id = :entry_id
+    </sql-query>
+    <sql-query name="getQualifications">
+        <return class="domain.Qualification"/>
+        select * from qualification where student_id = :student_id
+    </sql-query>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+    
+    <class name="domain.User" table="user_master">
+        <meta attribute="class-description">
+            This class contains the User detail. 
+        </meta>
+        <id name="user_id" type="long" column="user_id">
+            <generator class="sequence">
+                <param name="sequence">user_master_user_id_seq</param>
+            </generator>
+        </id>
+        <property name="uname" column="uname" type="string"/>
+        <property name="pwd" column="pwd" type="string"/>
+    </class>
+    
+    
+    <sql-query name="findUserById">
+        <return class="domain.User"/>
+        select * from user_master where user_id = :user_id
+    </sql-query>
+    <sql-query name="getAllUsers">
+        <return class="domain.User"/>
+        select * from user_master
+    </sql-query>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+    
+    <class name="domain.Course" table="course_master">
+        <meta attribute="class-description">
+            This class contains the Course detail. 
+        </meta>
+        <id name="course_id" type="long" column="course_id">
+            <generator class="sequence">
+                <param name="sequence">course_master_course_id_seq</param>
+            </generator>
+        </id>
+        <property name="abbr" column="abbr" type="string"/>
+        <property name="title" column="title" type="string"/>
+    </class>
+    
+    
+    <sql-query name="findCourseById">
+        <return class="domain.Course"/>
+        select * from course_master where course_id = :course_id
+    </sql-query>
+    <sql-query name="getAllCourses">
+        <return class="domain.Course"/>
+        select * from course_master
+    </sql-query>
+</hibernate-mapping>

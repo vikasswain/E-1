@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/jaxrs
+http://cxf.apache.org/schemas/jaxrs.xsd">
+
+<!-- JacksonJsonProvider handles conversion bet Java objects and JSON objects -->
+<bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
+
+<!-- initializing application domain specific beans -->
+<bean id="batchServiceBean" class="services.BatchService">
+    <property name="dbmanager" ref="DBManager" />
+</bean>
+
+<bean id="courseServiceBean" class="services.CourseService">
+    <property name="dbmanager" ref="DBManager" />
+</bean>
+
+<bean id="qualificationServiceBean" class="services.QualificationService">
+    <property name="dbmanager" ref="DBManager" />
+</bean>
+
+<bean id="staffServiceBean" class="services.StaffService">
+    <property name="dbmanager" ref="DBManager" />
+</bean>
+
+<bean id="studentServiceBean" class="services.StudentService">
+    <property name="dbmanager" ref="DBManager" />
+</bean>
+
+<bean id="workExperienceServiceBean" class="services.WorkExperienceService">
+    <property name="dbmanager" ref="DBManager" />
+</bean>
+
+<!-- initializing Hibernate session factory -->
+<bean id="DBManager" class="dao.DBManager" />
+
+<!-- initializing web services -->
+<jaxrs:server id="batchService" address="/batch">
+	<jaxrs:serviceBeans>
+		<ref bean="batchServiceBean" />
+	</jaxrs:serviceBeans>
+        <jaxrs:providers>
+        <ref bean="jsonProvider" />
+        </jaxrs:providers>
+</jaxrs:server>
+<jaxrs:server id="courseService" address="/course">
+	<jaxrs:serviceBeans>
+		<ref bean="courseServiceBean" />
+	</jaxrs:serviceBeans>
+        <jaxrs:providers>
+        <ref bean="jsonProvider" />
+        </jaxrs:providers>
+</jaxrs:server>
+<jaxrs:server id="qualificationService" address="/qualification">
+	<jaxrs:serviceBeans>
+		<ref bean="qualificationServiceBean" />
+	</jaxrs:serviceBeans>
+        <jaxrs:providers>
+        <ref bean="jsonProvider" />
+        </jaxrs:providers>
+</jaxrs:server>
+<jaxrs:server id="staffService" address="/staff">
+	<jaxrs:serviceBeans>
+		<ref bean="staffServiceBean" />
+	</jaxrs:serviceBeans>
+        <jaxrs:providers>
+        <ref bean="jsonProvider" />
+        </jaxrs:providers>
+</jaxrs:server>
+<jaxrs:server id="studentService" address="/student">
+	<jaxrs:serviceBeans>
+		<ref bean="studentServiceBean" />
+	</jaxrs:serviceBeans>
+        <jaxrs:providers>
+        <ref bean="jsonProvider" />
+        </jaxrs:providers>
+</jaxrs:server>
+<jaxrs:server id="workExperienceService" address="/experience">
+	<jaxrs:serviceBeans>
+		<ref bean="workExperienceServiceBean" />
+	</jaxrs:serviceBeans>
+        <jaxrs:providers>
+        <ref bean="jsonProvider" />
+        </jaxrs:providers>
+</jaxrs:server>
+
+</beans>

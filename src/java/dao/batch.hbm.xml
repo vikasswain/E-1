@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+    
+    <class name="domain.Batch" table="batch_master">
+        <meta attribute="class-description">
+            This class contains the Batch detail. 
+        </meta>
+        <id name="batch_id" type="long" column="batch_id">
+            <generator class="sequence">
+                <param name="sequence">batch_master_batch_id_seq</param>
+            </generator>
+        </id>
+        <property name="passoutYear" column="passout_year" type="int"/>
+        <property name="course_id" column="course_id" type="long"/>
+    </class>
+    
+    
+    <sql-query name="findBatchById">
+        <return class="domain.Batch"/>
+        select * from batch_master where batch_id = :batch_id
+    </sql-query>
+    
+    <sql-query name="getBatchesByCourseId">
+        <return class="domain.Batch"/>
+        select * from batch_master where course_id = :course_id
+    </sql-query>
+    
+    <sql-query name="getBatchesByYear">
+        <return class="domain.Batch"/>
+        select * from batch_master where passout_year = :passout_year
+    </sql-query>
+    
+    <sql-query name="findBatchByYearCourseId">
+        <return class="domain.Batch"/>
+        select * from batch_master where course_id = :course_id AND passout_year = :passout_year
+    </sql-query>
+    
+    <sql-query name="getAllBatches">
+        <return class="domain.Batch"/>
+        select * from batch_master
+    </sql-query>
+</hibernate-mapping>

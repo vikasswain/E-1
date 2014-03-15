@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+    
+    <class name="domain.Student" table="student_master">
+        <meta attribute="class-description">
+            This class contains the Student detail. 
+        </meta>
+        <id name="student_id" type="long" column="student_id">
+            <generator class="sequence">
+                <param name="sequence">student_master_student_id_seq</param>
+            </generator>
+        </id>
+        <property name="fname" column="fname" type="string"/>
+        <property name="lname" column="lname" type="string"/>
+        <property name="phone" column="phone" type="string"/>
+        <property name="email" column="email" type="string"/>
+        <property name="temporaryAddress" column="temporary_address" type="string"/>
+        <property name="permenantAddress" column="permenant_address" type="string"/>
+        <property name="user_id" column="user_id" type="long"/>
+        <property name="batch_id" column="batch_id" type="long"/>
+    </class>
+    
+    <sql-query name="findStudentById">
+        <return class="domain.Student"/>
+        select * from student_master where student_id = :student_id
+    </sql-query>
+    
+    <sql-query name="findStudentByUserId">
+        <return class="domain.Student"/>
+        select * from student_master where user_id = :user_id
+    </sql-query>
+    
+    <sql-query name="getStudentsByBatchId">
+        <return class="domain.Student"/>
+        select * from student_master where batch_id = :batch_id
+    </sql-query>
+    
+    <sql-query name="getAllStudents">
+        <return class="domain.Student"/>
+        select * from student_master
+    </sql-query>
+</hibernate-mapping>
