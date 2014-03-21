@@ -13,6 +13,8 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
 <bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
 
 <!-- initializing application domain specific beans -->
+
+
 <bean id="batchServiceBean" class="services.BatchService">
     <property name="dbmanager" ref="DBManager" />
 </bean>
@@ -37,10 +39,36 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
     <property name="dbmanager" ref="DBManager" />
 </bean>
 
+<bean id="eventServiceBean" class="services.EventService">
+    <property name="dbmanager" ref="DBManager" />
+</bean>
+
+<bean id="participantServiceBean" class="services.ParticipantService">
+    <property name="dbmanager" ref="DBManager" />
+</bean>
 <!-- initializing Hibernate session factory -->
 <bean id="DBManager" class="dao.DBManager" />
 
 <!-- initializing web services -->
+<jaxrs:server id="eventService" address="/event">
+	<jaxrs:serviceBeans>
+		<ref bean="eventServiceBean" />
+	</jaxrs:serviceBeans>
+        <jaxrs:providers>
+        <ref bean="jsonProvider" />
+        </jaxrs:providers>
+</jaxrs:server>
+
+
+<jaxrs:server id="participantService" address="/participant">
+	<jaxrs:serviceBeans>
+		<ref bean="participantServiceBean" />
+	</jaxrs:serviceBeans>
+        <jaxrs:providers>
+        <ref bean="jsonProvider" />
+        </jaxrs:providers>
+</jaxrs:server>
+
 <jaxrs:server id="batchService" address="/batch">
 	<jaxrs:serviceBeans>
 		<ref bean="batchServiceBean" />

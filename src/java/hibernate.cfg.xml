@@ -12,13 +12,13 @@
         </property>
    <!-- Assume test is the database name -->
         <property name="hibernate.connection.url">
-            jdbc:postgresql://localhost/campus
+            jdbc:postgresql://localhost:5432/campus
         </property>
         <property name="hibernate.connection.username">
-            test
+            postgres
         </property>
         <property name="hibernate.connection.password">
-            test
+            123456
         </property>
    <!-- List of XML mapping files -->
         <mapping resource="dao/course.hbm.xml"/>
@@ -28,5 +28,7 @@
         <mapping resource="dao/student.hbm.xml"/>
         <mapping resource="dao/user.hbm.xml"/>
         <mapping resource="dao/workExperience.hbm.xml"/>
+         <mapping resource="dao/event.hbm.xml"/>
+        <mapping resource="dao/participant.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
