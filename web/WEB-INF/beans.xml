@@ -21,10 +21,6 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
     <property name="dbmanager" ref="DBManager" />
 </bean>
 
-<bean id="qualificationServiceBean" class="services.QualificationService">
-    <property name="dbmanager" ref="DBManager" />
-</bean>
-
 <bean id="staffServiceBean" class="services.StaffService">
     <property name="dbmanager" ref="DBManager" />
 </bean>
@@ -33,9 +29,6 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
     <property name="dbmanager" ref="DBManager" />
 </bean>
 
-<bean id="workExperienceServiceBean" class="services.WorkExperienceService">
-    <property name="dbmanager" ref="DBManager" />
-</bean>
 
 <!-- initializing Hibernate session factory -->
 <bean id="DBManager" class="dao.DBManager" />
@@ -57,14 +50,6 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
         <ref bean="jsonProvider" />
         </jaxrs:providers>
 </jaxrs:server>
-<jaxrs:server id="qualificationService" address="/qualification">
-	<jaxrs:serviceBeans>
-		<ref bean="qualificationServiceBean" />
-	</jaxrs:serviceBeans>
-        <jaxrs:providers>
-        <ref bean="jsonProvider" />
-        </jaxrs:providers>
-</jaxrs:server>
 <jaxrs:server id="staffService" address="/staff">
 	<jaxrs:serviceBeans>
 		<ref bean="staffServiceBean" />
@@ -76,14 +61,6 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
 <jaxrs:server id="studentService" address="/student">
 	<jaxrs:serviceBeans>
 		<ref bean="studentServiceBean" />
-	</jaxrs:serviceBeans>
-        <jaxrs:providers>
-        <ref bean="jsonProvider" />
-        </jaxrs:providers>
-</jaxrs:server>
-<jaxrs:server id="workExperienceService" address="/experience">
-	<jaxrs:serviceBeans>
-		<ref bean="workExperienceServiceBean" />
 	</jaxrs:serviceBeans>
         <jaxrs:providers>
         <ref bean="jsonProvider" />

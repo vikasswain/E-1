@@ -12,7 +12,7 @@ package domain;
 public class Batch {
 
     private long batch_id;
-    private short passoutYear;
+    private int passoutYear;
     private long course_id;
 
     public long getBatch_id() {
@@ -23,11 +23,11 @@ public class Batch {
         this.batch_id = batch_id;
     }
 
-    public short getPassoutYear() {
+    public int getPassoutYear() {
         return passoutYear;
     }
 
-    public void setPassoutYear(short passoutYear) {
+    public void setPassoutYear(int passoutYear) {
         this.passoutYear = passoutYear;
     }
 
