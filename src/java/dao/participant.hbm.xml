@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+    
+    <class name="domain.Participant" table="participant_master">
+        <meta attribute="class-description">
+            This class contains the Event detail. 
+        </meta>
+        <id name="participant_id" type="long" column="participant_id">
+            <generator class="assigned" />
+        </id>
+        <property name="event_id" column="event_id" type="long"/>
+        <property name="student_id" column="student_id" type="long"/>
+        <property name="batch_id" column="batch_id" type="long"/>
+        <property name="course_id" column="course_id" type="long"/>
+        
+        
+    </class>
+    
+    
+    <sql-query name="findParticipantById">
+        <return class="domain.Participant"/>
+        select * from participant_master where participant_id = :participant_id
+    </sql-query>
+    
+    <sql-query name="getAllParticipants">
+        <return class="domain.Participant"/>
+        select * from participant_master
+    </sql-query>
+</hibernate-mapping>
