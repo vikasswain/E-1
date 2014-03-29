@@ -1,23 +1,35 @@
-define(['knockout', 'jquery'], function(ko, $) {
-    // StudentsModule
-    return {
-        list : ko.observableArray([]),
-        selectedStudent: ko.observable({}),
-        editableStudent: ko.observable({}),
-        load : loadList,
-        update : update,
-        save : save
-    };
-    
-    function loadList(){
+﻿define(['models/students', 'knockoutKendo'], 
+    function (model) {
+        'use strict';
+        var studentsDataSource = model.students;
+        return {
+            //variables
+            studentsData : studentsDataSource.data,
+            studentColumns : [
+                { 
+                    'field' : 'fname', 
+                    'title' : 'Name',
+                    'template' : '#=fname + " " + lname#'
+                },
+                { 
+                    'field' : 'email', 
+                    'title' : 'Email'
+                },
+                { 
+                    'field' : 'phone', 
+                    'title' : 'Phone'
+                }
+            ],
+            // functions
+            attached : viewAttached
+        };
         
-    }
-    
-    function update(){
+        function studentColumns(){
+            return ;
+        }
         
-    }
-    
-    function save(){
-        
-    }
-});
+        function viewAttached(){
+            studentsDataSource.read();
+        }
+    });
+

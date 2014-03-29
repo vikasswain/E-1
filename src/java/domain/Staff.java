@@ -27,7 +27,7 @@ public class Staff extends User{
     }
 
     public String getFname() {
-        return fname.trim();
+        return fname != null? fname.trim() : fname;
     }
 
     public void setFname(String fname) {
@@ -35,7 +35,7 @@ public class Staff extends User{
     }
 
     public String getLname() {
-        return lname.trim();
+        return lname != null? lname.trim() : lname;
     }
 
     public void setLname(String lname) {
@@ -43,7 +43,7 @@ public class Staff extends User{
     }
 
     public String getDesignation() {
-        return designation.trim();
+        return designation != null? designation.trim() : designation;
     }
 
     public void setDesignation(String designation) {
@@ -51,7 +51,7 @@ public class Staff extends User{
     }
 
     public String getEmail() {
-        return email.trim();
+        return email != null? email.trim() : email;
     }
 
     public void setEmail(String email) {
@@ -59,7 +59,7 @@ public class Staff extends User{
     }
 
     public String getPhone() {
-        return phone.trim();
+        return phone != null? phone.trim() : phone;
     }
 
     public void setPhone(String phone) {

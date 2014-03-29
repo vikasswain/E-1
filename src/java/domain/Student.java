@@ -29,7 +29,7 @@ public class Student extends User{
     }
 
     public String getFname() {
-        return fname.trim();
+        return fname != null? fname.trim() : fname;
     }
 
     public void setFname(String fname) {
@@ -37,7 +37,7 @@ public class Student extends User{
     }
 
     public String getLname() {
-        return lname.trim();
+        return lname != null? lname.trim() : lname;
     }
 
     public void setLname(String lname) {
@@ -45,7 +45,7 @@ public class Student extends User{
     }
 
     public String getPhone() {
-        return phone.trim();
+        return phone != null? phone.trim() : phone;
     }
 
     public void setPhone(String phone) {
@@ -53,7 +53,7 @@ public class Student extends User{
     }
 
     public String getEmail() {
-        return email.trim();
+        return email != null? email.trim() : email;
     }
 
     public void setEmail(String email) {
@@ -61,7 +61,7 @@ public class Student extends User{
     }
 
     public String getTemporaryAddress() {
-        return temporaryAddress.trim();
+        return temporaryAddress != null? temporaryAddress.trim() : temporaryAddress;
     }
 
     public void setTemporaryAddress(String temporaryAddress) {
@@ -69,7 +69,7 @@ public class Student extends User{
     }
 
     public String getPermenantAddress() {
-        return permenantAddress.trim();
+        return permenantAddress != null? permenantAddress.trim() : permenantAddress;
     }
 
     public void setPermenantAddress(String permenantAddress) {

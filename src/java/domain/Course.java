@@ -24,7 +24,7 @@ public class Course {
     }
 
     public String getAbbr() {
-        return abbr.trim();
+        return abbr!=null ? abbr.trim() : abbr;
     }
 
     public void setAbbr(String abbr) {
@@ -32,7 +32,7 @@ public class Course {
     }
 
     public String getTitle() {
-        return title.trim();
+        return title!=null ? title.trim() : title;
     }
 
     public void setTitle(String title) {

@@ -1,18 +1,28 @@
-requirejs.config({
+﻿requirejs.config({
     paths: {
         'text': '../lib/require/text',
         'durandal':'../lib/durandal/js',
         'plugins' : '../lib/durandal/js/plugins',
         'transitions' : '../lib/durandal/js/transitions',
         'knockout': '../lib/knockout/knockout-2.3.0',
-        'bootstrap': '../lib/bootstrap/js/bootstrap',
-        'jquery': '../lib/jquery/jquery-1.9.1.min'
+        'jquery': '../lib/jquery/jquery-1.7.2.min',
+        'bootstrap': '../lib/admin2/js/bootstrap',
+        'knockoutKendo' : '../lib/knockout/knockout-kendo.min',
+        'kendo' : '../lib/kendo/js/kendo.web.min'
     },
     shim: {
+        'jquery' : {
+            exports : '$'
+        },
         'bootstrap': {
-            deps: ['jquery'],
-            exports: 'jQuery'
-       }
+            deps: ['jquery']
+        },
+        'knockoutKendo' : {
+            deps: ['knockout', 'kendo']
+        },
+        'kendo' : {
+            exports : 'kendo'
+        }
     }
 });
 
@@ -21,7 +31,7 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'],  function (s
     system.debug(true);
     //>>excludeEnd("build");
 
-    app.title = 'Placement Portal - SIESCOMS';
+    app.title = 'E - by Soft22';
 
     app.configurePlugins({
         router:true,
@@ -35,6 +45,6 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'],  function (s
         viewLocator.useConvention();
 
         //Show the app by setting the root view model for our application with a transition.
-        app.setRoot('viewmodels/desk', 'entrance');
+        app.setRoot('viewmodels/shell', 'entrance');
     });
 });

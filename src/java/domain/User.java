@@ -24,7 +24,7 @@ public class User {
     }
 
     public String getUname() {
-        return uname.trim();
+        return uname!=null? uname.trim() : uname;
     }
 
     public void setUname(String uname) {
@@ -32,7 +32,7 @@ public class User {
     }
 
     public String getPwd() {
-        return pwd.trim();
+        return pwd!=null? pwd.trim() : pwd;
     }
 
     public void setPwd(String pwd) {
