@@ -7,9 +7,18 @@
             studentsData : studentsDataSource.data,
             studentColumns : [
                 { 
-                    'field' : 'fname', 
+                    'field' : 'first_name', 
                     'title' : 'Name',
-                    'template' : '#=fname + " " + lname#'
+                    'template' : '#=first_name + " " + last_name#'
+                },
+                {
+                    'field':'roll_no',
+                    'title' :"Roll Number"
+                },
+                {
+                  'field':'address_line_1',
+                  'title':'Address',
+                  'template':'#=address_line_1 + " " + address_line_2#'
                 },
                 { 
                     'field' : 'email', 

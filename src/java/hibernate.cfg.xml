@@ -28,5 +28,6 @@
         <mapping resource="dao/user.hbm.xml"/>
          <mapping resource="dao/event.hbm.xml"/>
         <mapping resource="dao/participant.hbm.xml"/>
+        <mapping resource="dao/applicant.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

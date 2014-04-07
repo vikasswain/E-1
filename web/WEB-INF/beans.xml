@@ -39,6 +39,11 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
 <bean id="participantServiceBean" class="services.ParticipantService">
     <property name="dbmanager" ref="DBManager" />
 </bean>
+
+<bean id="applicantServiceBean" class="services.ApplicantService">
+    <property name="dbmanager" ref="DBManager" />
+</bean>
+
 <!-- initializing Hibernate session factory -->
 <bean id="DBManager" class="dao.DBManager" />
 
@@ -95,4 +100,12 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
         </jaxrs:providers>
 </jaxrs:server>
 
+<jaxrs:server id="applicantService" address="/applicant">
+	<jaxrs:serviceBeans>
+		<ref bean="applicantServiceBean" />
+	</jaxrs:serviceBeans>
+        <jaxrs:providers>
+        <ref bean="jsonProvider" />
+        </jaxrs:providers>
+</jaxrs:server>
 </beans>

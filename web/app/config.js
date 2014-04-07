@@ -3,7 +3,9 @@ define(function(){
     return {
         'api' : {
             'student' : baseApi + 'student',
-            'studentByBatch' : baseApi + 'student/bybatch/'
+            'studentByBatch' : baseApi + 'student/batches/',
+            'course' : baseApi + 'course',
+             'applicant' : baseApi + 'applicant'
         }
     }
 })

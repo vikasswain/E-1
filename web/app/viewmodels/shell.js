@@ -9,6 +9,9 @@
         activate: function () {
             router.map([
                 { route: '', title:'Dashboard', moduleId: 'viewmodels/students', nav: true },
+                { route: 'test', title:'XYZ', moduleId: 'viewmodels/test', nav: true },
+                { route: 'courses', title:'XYZ', moduleId: 'viewmodels/courses', nav: true },
+                { route: 'applicants', title:'Applications', moduleId: 'viewmodels/applicants', nav: true }
             ]).buildNavigationModel();
             
             return router.activate();
