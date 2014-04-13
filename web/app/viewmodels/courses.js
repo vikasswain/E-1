@@ -1,10 +1,13 @@
-﻿define(['models/courses', 'knockoutKendo'], 
+define(['models/courses', 'knockoutKendo'], 
     function (model) {
         'use strict';
         var coursesDataSource = model.courses;
         return {
             //variables
-            coursesData : coursesDataSource.data,
+            coursesData : coursesDataSource.data,     // list of all courses
+            editableCourse : coursesDataSource.editableCourse, 
+            insertableCourse : coursesDataSource.insertableCourse,
+            deleteableCourse : coursesDataSource.deleteableCourse,
             courseColumns : [
                 { 
                     'field' : 'course_id', 
@@ -17,18 +20,42 @@
                 { 
                     'field' : 'title', 
                     'title' : 'Title'
-                }
+                },
+                {
+                    'command' : ["edit","destroy"],
+                    'width' : "175px"
+                }               
             ],
+                     editable: "inline" ,
+
             // functions
-            attached : viewAttached
+            attached : viewAttached,
+            saveCourse : saveCourse,
+            updateCourse : updateCourse,
+            deleteCourse :deleteCourse
         };
         
-        function courseColumns(){
-            return ;
-        }
         
         function viewAttached(){
             coursesDataSource.read();
         }
+        
+        function saveCourse(){
+            if(confirm("This will add this course to database. Continue?")){
+                coursesDataSource.create();
+            }
+        }
+        
+        function updateCourse(){
+            if(confirm("This will update course to database. Continue?")){
+                coursesDataSource.update();
+            }
+        }   
+        
+        function deleteCourse(){
+            if(confirm("This will delete course from database. Continue?")){
+                coursesDataSource.delete();
+            }
+        }         
     });
 
