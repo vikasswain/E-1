@@ -10,6 +10,7 @@ import dao.DBManager;
 import domain.Course;
 import java.util.List;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -19,10 +20,7 @@ import javax.ws.rs.Produces;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-/**
- *
- * @author ashish
- */
+
 public class CourseService {
     
     // initialized by spring. provides singleton SessionFactory object per application
@@ -126,4 +124,22 @@ public class CourseService {
             session.close();
         }
     }
+    
+    @DELETE
+    @Consumes("application/json")
+    public void deleteCourse(Course objCourse) {  // this object was passed from calling method e.g. ajax
+        Session session = dbmanager.getSessionFactory().openSession();
+        try {
+            Transaction tx = session.beginTransaction();
+            /// this will delete the record in database, using course_id in objCourse
+            session.delete(objCourse);
+            tx.commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            session.close();
+        }
+    }    
+    
+    
 }
