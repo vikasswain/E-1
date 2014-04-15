@@ -1,70 +1,95 @@
-<!--
-<div data-bind="kendoGrid: { data: coursesData, height :400, width:200, columns : courseColumns, scrollable: true, sortable: true, pageable: { pageSize: 10 } }"></div>
--->
+<button style="margin-left: 5px" class="btn btn-default btn-lg" data-toggle="modal" data-target="#addCourse">
+  Add New Course
+</button>
+<button style="margin-left: 5px" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editCourse">
+  Edit Course
+</button>
+<button style="margin-left: 5px" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#deleteCourse">
+  Delete Course
+</button>
 
-<head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <link href="http://localhost:8080/E/css/bootstrap.min.css" rel="stylesheet">
-        <link href="http://localhost:8080/E/css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
-        <link href="css/font-awesome.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-        <link href="css/pages/dashboard.css" rel="stylesheet">
-        <link href="lib/kendo/styles/kendo.common.min.css" rel="stylesheet" />
-        <link href="lib/kendo/styles/kendo.flat.min.css" rel="stylesheet" />
-        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-              <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-            <![endif]-->
-    </head>
+
+
+
+<div data-bind="kendoGrid: { data: coursesData, height :400, width:200, columns : courseColumns, scrollable: true, sortable: true, pageable: { pageSize: 10 } }"></div>
+
+
+
+
 
 <!--SAVE-->
-<div class="panel panel-warning" style="width: 200px">
-        <div class="panel-heading">
-            <h3 class="panel-title"><i class="icon-long-arrow-right"></i>New course</h3>
-        </div>
-        <div class="panel-body">
-            <label for="abbr">Abbrevation:</label>
-            <input type="text" class="form-control" id="abbr" data-bind="value: insertableCourse.abbr">
-            <label for="title">Title:</label>
-            <input type="text" class="form-control" id="title" data-bind="value: insertableCourse.title"><br>
-            <button style="float:left; margin: 5px" class="btn btn-success btn-sm" type="button" data-bind="click: saveCourse">Save Course</button>
-            <div  style="clear:both; text-align:center; margin:0px;">
+<div class="modal fade" id="addCourse" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="panel panel-danger col-lg-4" >
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="icon-long-arrow-right"></i>New course</h3>
+                    </div>
+                    <div class="panel-body">
+                        <label for="abbr">Abbrevation:</label>
+                        <input type="text" class="form-control" id="abbr" data-bind="value: insertableCourse.abbr">
+                        <label for="title">Title:</label>
+                        <input type="text" class="form-control" id="title" data-bind="value: insertableCourse.title"><br>
+                        <button style="float:left; margin: 5px" class="btn btn-success btn-sm" type="button" data-bind="click: saveCourse">Save Course</button>
+                        <button style="float:left; margin: 5px" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <div  style="clear:both; text-align:center; margin:0px;">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
     
     
 <!--UPDATE-->
-<div class="panel panel-warning" style="width: 200px">
-        <div class="panel-heading">
-            <h3 class="panel-title"><i class="icon-long-arrow-right"></i>Update Course</h3>
-        </div>
-        <div class="panel-body">
-            <label for="course_id">Course ID:</label>
-            <input type="text" class="form-control" id="course_id" data-bind="value: editableCourse.course_id">            
-            <label for="abbr">Abbrevation:</label>
-            <input type="text" class="form-control" id="abbr" data-bind="value: editableCourse.abbr">
-            <label for="title">Title:</label>
-            <input type="text" class="form-control" id="title" data-bind="value: editableCourse.title"><br>
-            <button style="float:left; margin: 5px" class="btn btn-success btn-sm" type="button" data-bind="click: updateCourse">Update Course</button>
-            <div  style="clear:both; text-align:center; margin:0px;">
+<div class="modal fade" id="editCourse" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="panel panel-warning col-lg-4">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="icon-long-arrow-right"></i>Update Course</h3>
+                    </div>
+                    <div class="panel-body">
+                        <label for="course_id">Course ID:</label>
+                        <input type="text" class="form-control" id="course_id" data-bind="value: editableCourse.course_id">            
+                        <label for="abbr">Abbrevation:</label>
+                        <input type="text" class="form-control" id="abbr" data-bind="value: editableCourse.abbr">
+                        <label for="title">Title:</label>
+                        <input type="text" class="form-control" id="title" data-bind="value: editableCourse.title"><br>
+                        <button style="float:left; margin: 5px" class="btn btn-success btn-sm" type="button" data-bind="click: updateCourse">Update Course</button>
+                        <button style="float:left; margin: 5px" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <div  style="clear:both; text-align:center; margin:0px;">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
 <!--Delete-->
-<div class="panel panel-warning" style="width: 200px">
-        <div class="panel-heading">
-            <h3 class="panel-title"><i class="icon-long-arrow-right"></i>Delete Course</h3>
-        </div>
-        <div class="panel-body">
-            <label for="course_id">Course ID:</label>
-            <input type="text" class="form-control" id="course_id" data-bind="value: deleteableCourse.course_id">            
-            <button style="float:left; margin: 5px" class="btn btn-success btn-sm" type="button" data-bind="click: deleteCourse">Delete Course</button>
-            <div  style="clear:both; text-align:center; margin:0px;">
+<div class="modal fade" id="deleteCourse" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="panel panel-warning col-lg-4">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="icon-long-arrow-right"></i>Delete Course</h3>
+                    </div>
+                    <div class="panel-body">
+                        <label for="course_id">Course ID:</label>
+                        <input type="text" class="form-control" id="course_id" data-bind="value: deleteableCourse.course_id">  <br>          
+                        <button style="float:left; margin: 5px" class="btn btn-success btn-sm" type="button" data-bind="click: deleteCourse">Delete Course</button>
+                        <button style="float:left; margin: 5px" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <div  style="clear:both; text-align:center; margin:0px;">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
+
