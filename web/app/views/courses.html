@@ -62,13 +62,12 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
-                <form id="demo-form">
                     <label for="abbr">Abbrevation :</label>
                     <input type="text" name="abbr" data-bind="value: insertableCourse.abbr" required />
                     <label for="abbr">Title :</label>
-                    <input type="text" name="abbr" data-bind="value: insertableCourse.title" required />
-                    <button type="submit" class="btn-danger" data-bind="click: saveCourse" >ADD</button>
-                </form>
+                    <input type="text" name="abbr" data-bind="value: insertableCourse.title" required /><br>
+                    <button style="float:left; margin: 5px" class="btn btn-success btn-sm" type="button" data-bind="click: saveCourse">Add Course</button>
+                    <button style="float:left; margin: 5px" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
