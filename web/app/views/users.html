@@ -1,0 +1,137 @@
+
+<button style="margin-left: 5px" class="btn btn-default btn-lg" data-toggle="modal" data-target="#addUser">
+  Add New User
+</button>
+<button style="margin-left: 5px" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editUser">
+  Edit User
+</button>
+<button style="margin-left: 5px" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#deleteUser">
+  Delete User
+</button>
+
+
+<div data-bind=" kendoGrid: {
+                data: usersData, 
+                height :400, 
+                width:200, 
+                columns : userColumns, 
+                scrollable: true, 
+                filterable: {
+                    operators: {
+                        string: {
+                            eq: 'Equals to',
+                            neq: 'Not Equals to',
+                            contain: 'Contains'
+                                },
+                        number: {
+                            eq: 'Equal to',
+                            neq: 'Not equal to',
+                            gte: 'Greater than or equal to',
+                            gt: 'Greater than',
+                            lt: 'Less than',
+                            lte: 'Less than or equal to'
+                                }
+                               },  
+                    extra: false,
+                    messages: {
+                        info: 'Filter by: ',
+                        filter: 'Apply filter',
+                        clear: 'Clear filter'
+                              }
+                        },
+                sortable: {
+                    mode: 'multiple'
+                },
+                groupable: {
+                    messages: {
+                        empty: 'Drop Columns Here'
+                    }
+                },
+                navigatable: true,
+                selectable: 'multiple cell',   
+                resizable: true,
+                reorderable: true,
+                pageable: { pageSize: 10,refresh: true } 
+                }">
+</div>
+
+
+<!--SAVE NEW-->
+
+<div class="form-group modal fade" id="addUser" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                    <label for="abbr">First Name :</label>
+                    <input type="text" name="ufname" data-bind="value: insertableUser.ufname" required />
+                    <label for="abbr">Last Name :</label>
+                    <input type="text" name="ulname" data-bind="value: insertableUser.ulname" required /><br>
+                    <label for="abbr">UserName :</label>
+                    <input type="text" name="uname" data-bind="value: insertableUser.uname" required /><br> 
+                    <label for="abbr">Password :</label>
+                    <input type="text" name="pwd" data-bind="value: insertableUser.pwd" required /><br>
+                    <label for="abbr">CustomerID :</label>
+                    <input type="text" name="customer_id" data-bind="value: insertableUser.customer_id" required /><br>                    
+                    <button style="float:left; margin: 5px" class="btn btn-success btn-sm" type="button" data-bind="click: saveUser">Add User</button>
+                    <button style="float:left; margin: 5px" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+   
+    
+<!--UPDATE-->
+<div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="panel panel-warning col-lg-4">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="icon-long-arrow-right"></i>Update User</h3>
+                    </div>
+                    <div class="panel-body">
+                        <label for="user_id">User ID:</label>
+                        <input type="text" class="form-control" id="user_id" data-bind="value: editableUser.user_id">            
+                        <label for="abbr">First Name:</label>
+                        <input type="text" class="form-control" id="ufname" data-bind="value: editableUser.ufname">
+                        <label for="title">Last Name:</label>
+                        <input type="text" class="form-control" id="ulname" data-bind="value: editableUser.ulname"><br>
+                        <label for="title">UserName:</label>
+                        <input type="text" class="form-control" id="uname" data-bind="value: editableUser.uname"><br>
+                        <label for="title">Password:</label>
+                        <input type="text" class="form-control" id="pwd" data-bind="value: editableUser.pwd"><br> 
+                        <label for="title">CustomerID:</label>
+                        <input type="text" class="form-control" id="customer_id" data-bind="value: editableUser.customer_id"><br>                        
+                        <button style="float:left; margin: 5px" class="btn btn-success btn-sm" type="button" data-bind="click: updateUser">Update User</button>
+                        <button style="float:left; margin: 5px" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <div  style="clear:both; text-align:center; margin:0px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Delete-->
+<div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="panel panel-warning col-lg-4">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="icon-long-arrow-right"></i>Delete User</h3>
+                    </div>
+                    <div class="panel-body">
+                        <label for="user_id">User ID:</label>
+                        <input type="text" class="form-control" id="user_id" data-bind="value: deleteableUser.user_id">  <br>          
+                        <button style="float:left; margin: 5px" class="btn btn-success btn-sm" type="button" data-bind="click: deleteUser">Delete User</button>
+                        <button style="float:left; margin: 5px" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <div  style="clear:both; text-align:center; margin:0px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

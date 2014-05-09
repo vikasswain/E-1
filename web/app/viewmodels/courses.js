@@ -11,7 +11,8 @@ define(['models/courses', 'knockoutKendo'],
             courseColumns : [
                 { 
                     'field' : 'course_id', 
-                    'title' : 'CourseID'
+                    'title' : 'CourseID',
+                    'type'  : 'number'
                 },
                 { 
                     'field' : 'abbr', 
@@ -20,11 +21,7 @@ define(['models/courses', 'knockoutKendo'],
                 { 
                     'field' : 'title', 
                     'title' : 'Title'
-                },
-                {
-                    'command' : ["edit","destroy"],
-                    'width' : "175px"
-                }               
+                }
             ],
                      editable: "inline" ,
 

@@ -5,7 +5,9 @@ define(function(){
             'student' : baseApi + 'student',
             'studentByBatch' : baseApi + 'student/batches/',
             'course' : baseApi + 'course',
-            'applicant' : baseApi + 'applicant'
+            'applicant' : baseApi + 'applicant',
+            'user' : baseApi + 'user',
+            'customer' : baseApi + 'customer'
         }
     };
 });
