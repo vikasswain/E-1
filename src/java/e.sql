@@ -12,6 +12,15 @@ CREATE TABLE course_master
   title character(50),
   CONSTRAINT course_master_pkey PRIMARY KEY (course_id)
 );
+
+CREATE TABLE customer_master
+(
+  customer_id serial NOT NULL,
+  title character(50),
+  address character(50),
+  CONSTRAINT customer_master_pkey PRIMARY KEY (customer_id)
+);
+
 CREATE TABLE event_master
 (
   event_id serial NOT NULL,
@@ -64,13 +73,18 @@ CREATE TABLE student_master
   batch_id numeric(11,0),
   CONSTRAINT student_master_pkey PRIMARY KEY (student_id)
 );
+
 CREATE TABLE user_master
 (
   user_id serial NOT NULL,
+  ufname character(50),
+  ulname character(50),
   uname character(50),
   pwd character(50),
+  customer_id numeric(10),
   CONSTRAINT user_master_pkey PRIMARY KEY (user_id)
 );
+
 CREATE TABLE work_experience
 (
   entry_id serial NOT NULL,

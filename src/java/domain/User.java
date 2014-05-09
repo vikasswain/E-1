@@ -5,15 +5,14 @@
  */
 package domain;
 
-/**
- *
- * @author ashish
- */
 public class User {
 
     private long user_id;
+    private String ufname;
+    private String ulname;
     private String uname;
     private String pwd;
+    private long customer_id;
 
     public long getUser_id() {
         return user_id;
@@ -37,5 +36,29 @@ public class User {
 
     public void setPwd(String pwd) {
         this.pwd = pwd;
+    }
+
+    public String getUfname() {
+        return ufname!=null? ufname.trim() : ufname;
+    }
+
+    public void setUfname(String ufname) {
+        this.ufname = ufname;
+    }
+
+    public String getUlname() {
+        return ulname!=null? ulname.trim() : ulname;
+    }
+
+    public void setUlname(String ulname) {
+        this.ulname = ulname;
+    }
+
+    public long getCustomer_id() {
+        return customer_id;
+    }
+
+    public void setCustomer_id(long customer_id) {
+        this.customer_id = customer_id;
     }
 }

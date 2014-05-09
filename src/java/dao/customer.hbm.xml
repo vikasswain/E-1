@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+    
+    <class name="domain.Customer" table="customer_master">
+        <meta attribute="class-description">
+            This class contains the Customer detail. 
+        </meta>
+        <id name="customer_id" type="long" column="customer_id">
+            <generator class="sequence">
+                <param name="sequence">customer_master_customer_id_seq</param>
+            </generator>
+        </id>
+        <property name="title" column="title" type="string"/>
+        <property name="address" column="address" type="string"/>
+    </class>
+    
+    
+    <sql-query name="findCustomerById">
+        <return class="domain.Customer"/>
+        select * from customer_master where customer_id = :customer_id
+    </sql-query>
+    <sql-query name="getAllCustomers">
+        <return class="domain.Customer"/>
+        select * from customer_master
+    </sql-query>
+</hibernate-mapping>

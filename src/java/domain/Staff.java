@@ -5,10 +5,6 @@
  */
 package domain;
 
-/**
- *
- * @author ashish
- */
 public class Staff extends User{
 
     private long staff_id;

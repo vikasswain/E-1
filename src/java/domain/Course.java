@@ -5,10 +5,6 @@
  */
 package domain;
 
-/**
- *
- * @author ashish
- */
 public class Course {
 
     private long course_id;
