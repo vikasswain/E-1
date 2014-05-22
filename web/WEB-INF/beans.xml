@@ -23,6 +23,14 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
     <property name="dbmanager" ref="DBManager" />
 </bean>
 
+<bean id="customerServiceBean" class="services.CustomerService">
+    <property name="dbmanager" ref="DBManager" />
+</bean>
+
+<bean id="userServiceBean" class="services.UserService">
+    <property name="dbmanager" ref="DBManager" />
+</bean>
+
 <bean id="staffServiceBean" class="services.StaffService">
     <property name="dbmanager" ref="DBManager" />
 </bean>
@@ -57,7 +65,6 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
         </jaxrs:providers>
 </jaxrs:server>
 
-
 <jaxrs:server id="participantService" address="/participant">
 	<jaxrs:serviceBeans>
 		<ref bean="participantServiceBean" />
@@ -75,6 +82,7 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
         <ref bean="jsonProvider" />
         </jaxrs:providers>
 </jaxrs:server>
+
 <jaxrs:server id="courseService" address="/course">
 	<jaxrs:serviceBeans>
 		<ref bean="courseServiceBean" />
@@ -83,6 +91,25 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
         <ref bean="jsonProvider" />
         </jaxrs:providers>
 </jaxrs:server>
+
+<jaxrs:server id="customerService" address="/customer">
+	<jaxrs:serviceBeans>
+		<ref bean="customerServiceBean" />
+	</jaxrs:serviceBeans>
+        <jaxrs:providers>
+        <ref bean="jsonProvider" />
+        </jaxrs:providers>
+</jaxrs:server>
+
+<jaxrs:server id="userService" address="/user">
+	<jaxrs:serviceBeans>
+		<ref bean="userServiceBean" />
+	</jaxrs:serviceBeans>
+        <jaxrs:providers>
+        <ref bean="jsonProvider" />
+        </jaxrs:providers>
+</jaxrs:server>
+
 <jaxrs:server id="staffService" address="/staff">
 	<jaxrs:serviceBeans>
 		<ref bean="staffServiceBean" />
@@ -91,6 +118,7 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
         <ref bean="jsonProvider" />
         </jaxrs:providers>
 </jaxrs:server>
+
 <jaxrs:server id="studentService" address="/student">
 	<jaxrs:serviceBeans>
 		<ref bean="studentServiceBean" />

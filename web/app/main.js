@@ -5,7 +5,7 @@ requirejs.config({
         'plugins' : '../lib/durandal/js/plugins',
         'transitions' : '../lib/durandal/js/transitions',
         'knockout': '../lib/knockout/knockout-2.3.0',
-        'jquery': '../lib/jquery/jquery-1.7.2.min',
+        'jquery': '../lib/jquery/jquery-1.9.1.min',
         'bootstrap': '../lib/admin2/js/bootstrap',
         'knockoutKendo' : '../lib/knockout/knockout-kendo.min',
         'kendo' : '../lib/kendo/js/kendo.web.min'
@@ -34,7 +34,7 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'],  function (s
     app.title = 'E - by Soft22';
 
     app.configurePlugins({
-        router:true,
+        router: true,
         dialog: true,
         widget: true
     });
