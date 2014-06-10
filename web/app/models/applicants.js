@@ -18,8 +18,8 @@ define(['config','knockout', 'jquery'], function(config, ko, $){
                applicantsData.splice(0, applicantsData().length);
                $.each(response, function(){
                    applicantsData.push(this);
-               })
+               });
            }
         });
     }
-})
+});

@@ -13,17 +13,39 @@
             <generator class="assigned">
                 
             </generator>
-        </id>
+        </id>       
         <property name="first_name" column="first_name" type="string"/>
-		<property name="middle_name" column="middle_name" type="string"/>
-		<property name="last_name" column="last_name" type="string"/>
-                <property name="last_exam_passed" column="last_exam_passed" type="string"/>
-		<property name="percentage" column="percentage" type="float"/>
-		<property name="year_of_passing" column="year_of_passing" type="integer"/>
-		<property name="course_to_be_admitted" column="course_to_be_admitted" type="string"/>
-		<property name="course_id" column="course_id" type="string"/>
-		<property name="is_eligible" column="is_eligible" type="string"/>
-
+        <property name="middle_name" column="middle_name" type="string"/>
+	<property name="last_name" column="last_name" type="string"/>
+        <property name="gender" column="gender" type="character"/>
+         <property name="date_of_birth" column="date_of_birth" type="date"/>
+        <property name="email" column="email" type="string"/>
+        <property name="religion" column="religion" type="string"/>
+        <property name="caste_id" column="caste_id" type="string"/>
+        <property name="nationality" column="nationality" type="string"/>
+        <property name="parents_income" column="parents_income" type="double"/>
+        
+        <property name="percentage" column="percentage" type="float"/>
+        <property name="last_exam_passed" column="last_exam_passed" type="string"/>
+	<property name="year_of_passing" column="year_of_passing" type="date"/>
+	<property name="course_to_be_admitted" column="course_to_be_admitted" type="string"/>
+	<property name="is_eligible" column="is_eligible" type="boolean"/>
+        
+        <property name="address" column="address" type="string"/>
+        <property name="locality" column="locality" type="string"/>
+        <property name="city" column="city" type="string"/>
+        <property name="zipcode" column="zipcode" type="string"/>
+        <property name="state" column="state" type="string"/>
+        
+        <property name="created_by" column="created_by" type="string"/>
+        <property name="creation_time" column="creation_time" type="timestamp"/>
+        <property name="updated_by" column="updated_by" type="string"/>
+        <property name="updation_time" column="updation_time" type="timestamp"/>
+        <property name="is_deleted" column="is_deleted" type="boolean"/>
+        <property name="deleted_by" column="deleted_by" type="string"/>
+        <property name="deletion_time" column="deletion_time" type="timestamp"/>
+        
+       
     </class>
     
     

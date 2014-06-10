@@ -9,27 +9,26 @@
         <meta attribute="class-description">
             This class contains the Student detail. 
         </meta>
-       <id name="student_id" type="string" column="student_id">
+       <id name="roll_no" type="string" column="roll_no">
             <generator class="assigned">
                 
             </generator>
         </id>
-        <property name="admission_no" column="admission_no" type="integer"/>
-	<property name="roll_no" column="roll_no" type="string"/>
-	<property name="first_name" column="first_name" type="string"/>
-	<property name="middle_name" column="middle_name" type="string"/>
-        <property name="last_name" column="last_name" type="string"/>
+        
+        <property name="reg_no" column="reg_no" type="string"/>
+	<property name="app_id" column="app_id" type="string"/>
+	<property name="course_id" column="course_id" type="string"/>
+        
 	<property name="batch_id" column="batch_id" type="string"/>
-        <property name="phone" column="phone" type="string"/>
-        <property name="email" column="email" type="string"/>
-        <property name="address_line_1" column="address_line_1" type="string"/>
-        <property name="address_line_2" column="address_line_2" type="string"/>
-	<property name="city" column="city" type="string"/>
-	<property name="state" column="state" type="string"/>
-        <property name="pincode" column="pincode" type="string"/>
-        <property name="dob" column="dob" type="date"/>
-        <property name="gender" column="gender" type="string"/>
-        <property name="is_defaulter" column="is_defaulter" type="string"/>
+        <property name="is_defaulter" column="is_defaulter" type="boolean"/>
+        
+        <property name="created_by" column="created_by" type="string"/>
+        <property name="creation_time" column="creation_time" type="timestamp"/>
+        <property name="updated_by" column="updated_by" type="string"/>
+        <property name="updation_time" column="updation_time" type="timestamp"/>
+        <property name="is_deleted" column="is_deleted" type="boolean"/>
+        <property name="deleted_by" column="deleted_by" type="string"/>
+        <property name="deletion_time" column="deletion_time" type="timestamp"/>
         
     </class>
     
@@ -38,10 +37,7 @@
         select * from student_master where student_id = :student_id
     </sql-query>
     
-    <sql-query name="findStudentByUserId">
-        <return class="domain.Student"/>
-        select * from student_master where user_id = :user_id
-    </sql-query>
+    
     
     <sql-query name="getStudentsByBatchId">
         <return class="domain.Student"/>

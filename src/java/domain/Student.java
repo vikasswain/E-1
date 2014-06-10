@@ -5,65 +5,43 @@
  */
 package domain;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
  *
- * @author neeraj
+ * @author neeraj re-designed
  * Student Class for the Storing Information about Active / Admitted Students
  * 
  */
 public class Student{
 
-    private String student_id;
-    private int admission_no; 
+    private String reg_no;
     private String roll_no;
-    private String first_name;
-    private String middle_name;
-    private String last_name;
+    private String app_id;
+
+    private String course_id;
     private String batch_id;
-    private String phone;
-    private String email;
-    private String address_line_1;
-    private String address_line_2;
-    private String city;
-    private String state;
-    private String pincode;
-    private Date dob;
-    private String gender;
-    private String is_defaulter; // whether a student has paid fees or not 
+    private boolean is_defaulter; // whether a student has paid fees or not 
+   
+    //logging purpose variables
+    private String created_by;
+    private Timestamp creation_time;                        
+    private String updated_by;        
+    private Timestamp updation_time;                
+    private boolean is_deleted;
+    private String deleted_by;
+    private Timestamp deletion_time;
+
     
+    public Student(){}
     
-    public Date getDob() {
-        return dob;
+    public String getReg_no() {
+        return reg_no;
     }
 
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
-    
-    
-     public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }     
-    public String getStudent_id() {
-        return student_id;
-    }
-
-    public void setStudent_id(String student_id) {
-        this.student_id = student_id;
-    }
-
-    public int getAdmission_no() {
-        return admission_no;
-    }
-
-    public void setAdmission_no(int admission_no) {
-        this.admission_no = admission_no;
+    public void setReg_no(String reg_no) {
+        this.reg_no = reg_no;
     }
 
     public String getRoll_no() {
@@ -74,28 +52,20 @@ public class Student{
         this.roll_no = roll_no;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getApp_id() {
+        return app_id;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setApp_id(String app_id) {
+        this.app_id = app_id;
     }
 
-    public String getMiddle_name() {
-        return middle_name;
+    public String getCourse_id() {
+        return course_id;
     }
 
-    public void setMiddle_name(String middle_name) {
-        this.middle_name = middle_name;
-    }
-
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setCourse_id(String course_id) {
+        this.course_id = course_id;
     }
 
     public String getBatch_id() {
@@ -106,68 +76,72 @@ public class Student{
         this.batch_id = batch_id;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getAddress_line_1() {
-        return address_line_1;
-    }
-
-    public void setAddress_line_1(String address_line_1) {
-        this.address_line_1 = address_line_1;
-    }
-
-    public String getAddress_line_2() {
-        return address_line_2;
-    }
-
-    public void setAddress_line_2(String address_line_2) {
-        this.address_line_2 = address_line_2;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getPincode() {
-        return pincode;
-    }
-
-    public void setPincode(String pincode) {
-        this.pincode = pincode;
-    }
-
-    public String getIs_defaulter() {
+    public boolean getIs_defaulter() {
         return is_defaulter;
     }
 
-    public void setIs_defaulter(String is_defaulter) {
+    public void setIs_defaulter(boolean is_defaulter) {
         this.is_defaulter = is_defaulter;
     }
+
+    public String getCreated_by() {
+        return created_by;
+    }
+
+    public void setCreated_by(String created_by) {
+        this.created_by = created_by;
+    }
+
+    public Timestamp getCreation_time() {
+        return creation_time;
+    }
+
+    public void setCreation_time(Timestamp creation_time) {
+        this.creation_time = creation_time;
+    }
+
+    public String getUpdated_by() {
+        return updated_by;
+    }
+
+    public void setUpdated_by(String updated_by) {
+        this.updated_by = updated_by;
+    }
+
+    public Timestamp getUpdation_time() {
+        return updation_time;
+    }
+
+    public void setUpdation_time(Timestamp updation_time) {
+        this.updation_time = updation_time;
+    }
+
+    public boolean isIs_deleted() {
+        return is_deleted;
+    }
+
+    public void setIs_deleted(boolean is_deleted) {
+        this.is_deleted = is_deleted;
+    }
+
+    public String getDeleted_by() {
+        return deleted_by;
+    }
+
+    public void setDeleted_by(String deleted_by) {
+        this.deleted_by = deleted_by;
+    }
+
+    public Timestamp getDeletion_time() {
+        return deletion_time;
+    }
+
+    public void setDeletion_time(Timestamp deletion_time) {
+        this.deletion_time = deletion_time;
+    }
+
+
+    
        
- }
+ }//class
+

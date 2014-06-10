@@ -1,2 +1,224 @@
 
-<div data-bind="kendoGrid: { data: applicantsData, height :400, columns : applicantsColumns, scrollable: true, sortable: true, pageable: { pageSize: 10 }, toolbar: ['create'], editable:'inline', reorderable:true}"></div>
+
+<button style="margin-left: 5px" class="btn btn-default btn-lg" data-toggle="modal" data-target="#addApplicant">
+  Add New
+</button>
+<button style="margin-left: 5px" class="btn btn-default btn-lg" data-toggle="modal" data-target="#editApplicant">
+  Edit
+</button>
+<button style="margin-left: 5px" class="btn btn-default btn-lg" data-toggle="modal" data-target="#deleteApplicant">
+  Delete
+</button>
+<button style="margin-left: 5px" class="btn btn-default btn-lg" >
+  Save as PDF
+</button>
+<button style="margin-left: 5px" class="btn btn-default btn-lg" >
+  Save as CSV
+</button>
+
+
+
+<div data-bind=" kendoGrid: {
+                data: applicantsData, 
+                height :400,
+                width :200,
+                columns : applicantsColumns, 
+                scrollable: true,
+                filterable: {
+                    operators: {
+                        string: {
+                            eq: 'Equals to',
+                            neq: 'Not Equals to',
+                            contain: 'Contains'
+                                },
+                        date: {
+                            eq: 'Equal to',
+                            neq: 'Not equal to',
+                            gte: 'Greater than or equal to',
+                            gt: 'Greater than',
+                            lt: 'Less than',
+                            lte: 'Less than or equal to'
+                               },
+                        number: {
+                            eq: 'Equal to',
+                            neq: 'Not equal to',
+                            gte: 'Greater than or equal to',
+                            gt: 'Greater than',
+                            lt: 'Less than',
+                            lte: 'Less than or equal to'
+                                }
+                               },  
+                    extra: false,
+                    messages: {
+                        info: 'Filter by: ',
+                        filter: 'Apply filter',
+                        clear: 'Clear filter'
+                              }
+                        },
+                sortable: {
+                    mode: 'multiple'
+                },
+                groupable: {
+                    messages: {
+                        empty: 'Drop Columns Here'
+                    }
+                },
+                navigatable: true,
+                selectable: 'multiple cell',   
+                resizable: true,
+                reorderable: true,
+                pageable: { pageSize: 10,refresh: true } 
+                }">
+</div>
+
+
+
+<!--SAVE NEW-->
+
+<div class="form-group modal fade" id="addApplicant" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><i class="icon-long-arrow-right"></i>Add Applicant</h4>
+            </div>
+            <div class="modal-body">
+                    <label for="abbr">Application ID :</label>
+                    <input type="text" name="ufname" data-bind="value: insertableUser.app_id" required />
+                    <label for="abbr">First Name :</label>
+                    <input type="text" name="ulname" data-bind="value: insertableUser.ulname" required /><br>
+                    <label for="abbr">Middle Name :</label>
+                    <input type="text" name="uname" data-bind="value: insertableUser.uname" required /><br> 
+                    <label for="abbr">Last Name :</label>
+                    <input type="text" name="pwd" data-bind="value: insertableUser.pwd" required /><br>
+                    <label for="abbr">Date Of Birth :</label>
+                    <input type="text" name="customer_id" placeholder="yyyy/mm/dd" data-bind="value: insertableUser.customer_id" required /><br>   
+                    <label for="abbr">Gender :</label>
+                    <div class="radio">
+                        <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Male</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Female</label>
+                    </div>
+                    <label for="abbr">Email :</label>
+                    <input type="text" name="ulname" data-bind="value: insertableUser.ulname" required /><br>
+                    <label for="abbr">Religion :</label>
+                    <input type="text" name="uname" data-bind="value: insertableUser.uname" required /><br> 
+                    <label for="abbr">Caste ID :</label>
+                    <input type="text" name="pwd" data-bind="value: insertableUser.pwd" required /><br>
+                    <label for="abbr">Nationality :</label>
+                    <input type="text" name="customer_id"  data-bind="value: insertableUser.customer_id" required /><br>
+                    <label for="abbr">Parents Income :</label>
+                    <input type="text" name="ulname" data-bind="value: insertableUser.ulname" required /><br>
+                    <label for="abbr">Percentage :</label>
+                    <input type="text" name="uname" data-bind="value: insertableUser.uname" required /><br> 
+                    <label for="abbr">Last Exam Passed :</label>
+                    <input type="text" name="pwd" data-bind="value: insertableUser.pwd" required /><br>
+                    <label for="abbr">Year Of Passing :</label>
+                    <input type="text" name="customer_id" placeholder="yyyy/mm/dd"  data-bind="value: insertableUser.customer_id" required /><br> 
+                    <label for="abbr">Admission Course :</label>
+                    <input type="text" name="ulname" data-bind="value: insertableUser.ulname" required /><br>
+                    <label for="abbr">Is Eligible :
+                    <input type="checkbox" id="inlineCheckbox3" value="option3" /></label><br> 
+                    <label for="abbr">Address :</label>
+                    <input type="text" name="pwd" data-bind="value: insertableUser.pwd" required /><br>
+                    <label for="abbr">Locality :</label>
+                    <input type="text" name="customer_id"  data-bind="value: insertableUser.customer_id" required /><br> 
+                    <label for="abbr">City :</label>
+                    <input type="text" name="uname" data-bind="value: insertableUser.uname" required /><br> 
+                    <label for="abbr">Zipcode :</label>
+                    <input type="text" name="pwd" data-bind="value: insertableUser.pwd" required /><br>
+                    <label for="abbr">State :</label>
+                    <input type="text" name="customer_id"  data-bind="value: insertableUser.customer_id" required /><br>
+            </div>
+            <div class="modal-footer">
+             <button style="float:left; margin: 5px" class="btn btn-success btn-sm" type="button" data-bind="click: saveUser">Add User</button>
+             <button style="float:left; margin: 5px" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+   
+    
+<!--UPDATE-->
+<div class="modal fade" id="editApplicant" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><i class="icon-long-arrow-right"></i>Edit Applicant</h4>
+            </div>
+            <div class="modal-body">
+                    <label for="abbr">Application ID :</label>
+                    <input type="text" name="ufname" data-bind="value: insertableUser.app_id" required />                        
+                    <label for="abbr">First Name :</label>
+                    <input type="text" name="ulname" data-bind="value: insertableUser.ulname" required /><br>
+                    <label for="abbr">Middle Name :</label>
+                    <input type="text" name="uname" data-bind="value: insertableUser.uname" required /><br> 
+                    <label for="abbr">Last Name :</label>
+                    <input type="text" name="pwd" data-bind="value: insertableUser.pwd" required /><br>
+                    <label for="abbr">Date Of Birth :</label>
+                    <input type="text" name="customer_id" placeholder="yyyy/mm/dd" data-bind="value: insertableUser.customer_id" required /><br>   
+                    <label for="abbr">Gender :</label>
+                        <input type="checkbox" id="inlineCheckbox1" value="option1"> Male
+                        <input type="checkbox" id="inlineCheckbox2" value="option2"> Female<br><br>
+                    <label for="abbr">Email :</label>
+                    <input type="text" name="ulname" data-bind="value: insertableUser.ulname" required /><br>
+                    <label for="abbr">Religion :</label>
+                    <input type="text" name="uname" data-bind="value: insertableUser.uname" required /><br> 
+                    <label for="abbr">Caste ID :</label>
+                    <input type="text" name="pwd" data-bind="value: insertableUser.pwd" required /><br>
+                    <label for="abbr">Nationality :</label>
+                    <input type="text" name="customer_id"  data-bind="value: insertableUser.customer_id" required /><br>
+                    <label for="abbr">Parents Income :</label>
+                    <input type="text" name="ulname" data-bind="value: insertableUser.ulname" required /><br>
+                    <label for="abbr">Percentage :</label>
+                    <input type="text" name="uname" data-bind="value: insertableUser.uname" required /><br> 
+                    <label for="abbr">Last Exam Passed :</label>
+                    <input type="text" name="pwd" data-bind="value: insertableUser.pwd" required /><br>
+                    <label for="abbr">Year Of Passing :</label>
+                    <input type="text" name="customer_id" placeholder="yyyy/mm/dd"  data-bind="value: insertableUser.customer_id" required /><br> 
+                    <label for="abbr">Admission Course :</label>
+                    <input type="text" name="ulname" data-bind="value: insertableUser.ulname" required /><br>
+                    <label for="abbr">Is Eligible :
+                    <input type="checkbox" id="inlineCheckbox3" value="option3" /></label><br> 
+                    <label for="abbr">Address :</label>
+                    <input type="text" name="pwd" data-bind="value: insertableUser.pwd" required /><br>
+                    <label for="abbr">Locality :</label>
+                    <input type="text" name="customer_id"  data-bind="value: insertableUser.customer_id" required /><br> 
+                    <label for="abbr">City :</label>
+                    <input type="text" name="uname" data-bind="value: insertableUser.uname" required /><br> 
+                    <label for="abbr">Zipcode :</label>
+                    <input type="text" name="pwd" data-bind="value: insertableUser.pwd" required /><br>
+                    <label for="abbr">State :</label>
+                    <input type="text" name="customer_id"  data-bind="value: insertableUser.customer_id" required /><br>
+                    </div>                    
+                    <div class="modal-footer">
+                        <button style="float:left; margin: 5px" class="btn btn-success btn-sm" type="button" data-bind="click: updateUser">Edit Applicant</button>
+                        <button style="float:left; margin: 5px" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+        </div>
+    </div>
+</div>
+
+<!--Delete-->
+<div class="modal fade" id="deleteApplicant" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><i class="icon-long-arrow-right"></i>Delete Applicant</h4>
+            </div>
+            <div class="modal-body">
+                <label for="user_id">Application ID:</label>
+                <input type="text" class="form-control" id="user_id" data-bind="value: deleteableUser.user_id">  <br> 
+                <div class="modal-footer">
+                    <button style="float:left; margin: 5px" class="btn btn-success btn-sm" type="button" data-bind="click: deleteUser">Delete User</button>
+                    <button style="float:left; margin: 5px" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <div  style="clear:both; text-align:center; margin:0px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

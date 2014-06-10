@@ -2,8 +2,9 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
-@author Neeraj
-created Services for APllicant class 
+@author Neeraj 
+@revised 22 may 2014
+created Services for Applicant class 
 
 */
 
@@ -46,24 +47,26 @@ public class ApplicantService {
      * GET all
      *@return list of applicants
      */
+  
     @GET
     @Produces("application/json")
     public List<Applicant> getAllApplicants() {
         List<Applicant> applicant;
         applicant = null;
-        Session session = dbmanager.getSessionFactory().openSession();
+        Session session;
+        session = dbmanager.getSessionFactory().openSession();
         try {
             Transaction tx = session.beginTransaction();
             applicant = (List<Applicant>) session.getNamedQuery("getAllApplicants").list();
             tx.commit();
         } catch (HibernateException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Neeraj "+ e.getMessage());
         } finally {
             session.close();
         }
         return applicant;
     }
-    
+
     /**
      * GET by id
      *
@@ -150,7 +153,7 @@ public class ApplicantService {
             tx.commit();
             
         } catch (HibernateException e) {
-            System.out.println("Create Error"+ e.getMessage());
+            System.out.println("Create Error "+ e.getMessage());
         } finally {
             session.close();
         }
