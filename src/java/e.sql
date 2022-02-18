@@ -1,4 +1,4 @@
-CREATE TABLE batch_master
+CREATE TABLE batch_master5432
 (
   batch_id serial NOT NULL,
   passout_year numeric(4,0),
